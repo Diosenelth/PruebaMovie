@@ -1,13 +1,62 @@
 package com.example.pruebamovie;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
+import androidx.fragment.app.FragmentContainerView;
+import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity {
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
+import com.example.pruebamovie.databinding.ActivityMainBinding;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class MainActivity extends AppCompatActivity implements IPresentador {
+    ActivityMainBinding binding;
+    int page = 1;
+    MainPresentador mainPresentador;
+    MoviesFragment moviesFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        //setContentView(R.layout.activity_main);
+        cargar(page);
+    }
+
+    public void cargar(int page) {
+        this.page = page;
+        binding.lottie.setVisibility(View.VISIBLE);
+        binding.lottie.setAnimation(R.raw.laa);
+        binding.lottie.playAnimation();
+        binding.fragmentContainerView.setVisibility(View.INVISIBLE);
+        moviesFragment=null;
+        mainPresentador = new MainPresentador(this, page);
+        mainPresentador.cargar();
+    }
+
+    public void mostrarAlerta(String mensaje) {
+        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+    }
+
+    public void cargarMovies(MoviesRes moviesRes) {
+        moviesFragment = new MoviesFragment(moviesRes, page, this);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainerView, moviesFragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .commit();
+        binding.lottie.setVisibility(View.INVISIBLE);
+        binding.fragmentContainerView.setVisibility(View.VISIBLE);
+    }
+
+    public void error() {
+        binding.lottie.setAnimation(R.raw.error);
+        binding.lottie.playAnimation();
     }
 }
