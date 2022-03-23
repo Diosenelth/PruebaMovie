@@ -22,6 +22,10 @@ public class MovieService {
         @GET("movie/popular")
         Call<MoviesRes> getPopularMovies(@Query("page") int page);
 
+        @GET("search/company?")
+        Call<MoviesRes> search(@Query("query") int page);
+
+
         @GET("movie/top_rated")
         Call<MoviesRes> getTopRatedMovies(@Query("page") int page);
 

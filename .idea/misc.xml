@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/diose/StudioProjects/pruebaMovie/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/diose/StudioProjects/pruebaMovie/app/src/main/res/layout/fragment_movies.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/diose/StudioProjects/pruebaMovie/app/src/main/res/layout/item.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/drawable/animation.xml" value="0.1125" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/activity_main.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/detalle.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/fragment_detalle_movie.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/fragment_detalle_movies.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/fragment_movies.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/item.xml" value="0.20052083333333334" />
       </map>
     </option>
   </component>
