@@ -46,7 +46,7 @@ public class MoviesFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentMoviesBinding.inflate(inflater, container, false);
@@ -99,18 +99,18 @@ public class MoviesFragment extends Fragment {
     public void cargar() {
         new Thread(() -> movieService.getRutas().getPopularMovies(page).enqueue(new Callback<MoviesRes>() {
             @Override
-            public void onResponse(Call<MoviesRes> call, Response<MoviesRes> response) {
+            public void onResponse(@NonNull Call<MoviesRes> call, @NonNull Response<MoviesRes> response) {
                 if (response.isSuccessful()) {
                     assert response.body() != null;
                     movies.addAll(response.body().getResults());
-                    requireActivity().runOnUiThread(()->adaptadorMovies.notifyDataSetChanged());
+                    requireActivity().runOnUiThread(()->adaptadorMovies.notifyItemInserted(movies.size()));
                 } else {
                     Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<MoviesRes> call, Throwable t) {
+            public void onFailure(@NonNull Call<MoviesRes> call, @NonNull Throwable t) {
                 Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
             }
         })).start();

@@ -2,6 +2,8 @@ package com.example.pruebamovie;
 
 import android.os.Handler;
 
+import androidx.annotation.NonNull;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,7 +23,7 @@ public class MainPresentador {
         movieService = new MovieService();
         movieService.getRutas().getPopularMovies(page).enqueue(new Callback<MoviesRes>() {
             @Override
-            public void onResponse(Call<MoviesRes> call, Response<MoviesRes> response) {
+            public void onResponse(@NonNull Call<MoviesRes> call, @NonNull Response<MoviesRes> response) {
                 if (response.isSuccessful()) {
                     vista.cargarMovies(response.body());
                 } else {
@@ -31,7 +33,7 @@ public class MainPresentador {
             }
 
             @Override
-            public void onFailure(Call<MoviesRes> call, Throwable t) {
+            public void onFailure(@NonNull Call<MoviesRes> call, @NonNull Throwable t) {
                 if (error < 3) {
                     error++;
                     vista.mostrarAlerta(t.getMessage());

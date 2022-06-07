@@ -1,18 +1,13 @@
 package com.example.pruebamovie;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentContainerView;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.pruebamovie.databinding.ActivityMainBinding;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.example.pruebamovie.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements IPresentador {
     ActivityMainBinding binding;
