@@ -12,7 +12,7 @@
         <activity
             android:name=".java.MainActivity"
             android:exported="true"
-            android:launchMode="singleInstancePerTask"
+            android:launchMode="singleInstance"
             android:icon="@drawable/ic_java_original_logo_icon"
             android:label="Movie Java">
             <intent-filter>
@@ -24,7 +24,7 @@
         <activity
             android:name=".kotlin.MainActivityKT"
             android:exported="true"
-            android:launchMode="singleInstancePerTask"
+            android:launchMode="singleInstance"
             android:icon="@drawable/ic_icons8_kotlin_144"
             android:label="Movie Kotlin">
             <intent-filter>
