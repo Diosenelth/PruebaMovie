@@ -8,10 +8,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Material3.Dark" >
+        android:theme="@style/Theme.Material3.Dark">
         <activity
-            android:name=".MainActivity"
-            android:exported="true" >
+            android:name=".java.MainActivity"
+            android:exported="true"
+            android:launchMode="singleInstancePerTask"
+            android:icon="@drawable/ic_java_original_logo_icon"
+            android:label="Movie Java">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".kotlin.MainActivityKT"
+            android:exported="true"
+            android:launchMode="singleInstancePerTask"
+            android:icon="@drawable/ic_icons8_kotlin_144"
+            android:label="Movie Kotlin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

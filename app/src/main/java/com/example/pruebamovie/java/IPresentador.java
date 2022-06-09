@@ -1,4 +1,6 @@
-package com.example.pruebamovie;
+package com.example.pruebamovie.java;
+
+import com.example.pruebamovie.java.MoviesRes;
 
 public interface IPresentador {
     void cargar(int page);

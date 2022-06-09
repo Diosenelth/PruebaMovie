@@ -1,4 +1,4 @@
-package com.example.pruebamovie;
+package com.example.pruebamovie.java;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.pruebamovie.R;
 import com.example.pruebamovie.databinding.FragmentDetalleMovieBinding;
 
 import java.util.Objects;

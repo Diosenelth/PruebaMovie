@@ -3,13 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.164" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/drawable/animation.xml" value="0.1125" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/drawable/ic_launcher_background.xml" value="0.164" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/activity_main.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/detalle.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/fragment_detalle_movie.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/fragment_detalle_movies.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/fragment_movies.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/fragment_movies_k_t.xml" value="0.1" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/layout/item.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.164" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/pruebaMovie/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.164" />
       </map>
     </option>
   </component>

@@ -1,4 +1,4 @@
-package com.example.pruebamovie;
+package com.example.pruebamovie.java;
 
 import android.os.Handler;
 

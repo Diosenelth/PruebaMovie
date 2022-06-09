@@ -1,4 +1,4 @@
-package com.example.pruebamovie;
+package com.example.pruebamovie.java;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.pruebamovie.R;
 
 import java.util.List;
 
