@@ -29,20 +29,27 @@ class MainActivityKT : AppCompatActivity() {
         binding.lottie.playAnimation()
         binding.fragmentContainerView.visibility=View.INVISIBLE
         CoroutineScope(Dispatchers.IO).launch {
-            val response =movieServiceKT.getRutas().getPopularMovies("$page").execute()
-            val body=response.body()!!
-            runOnUiThread(){
-                val moviesFragmentKT= MoviesFragmentKT()
-                moviesFragmentKT.movies= body.results as MutableList<MovieKt>
-                moviesFragmentKT.page=1
-                moviesFragmentKT.totalpages= body.total_pages.toInt()
-                supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.fragmentContainerView, moviesFragmentKT)
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                    .commit()
-                binding.lottie.visibility= View.INVISIBLE
-                binding.fragmentContainerView.visibility=View.VISIBLE
+            try {
+                val response =movieServiceKT.getRutas().getPopularMovies("$page").execute()
+                val body=response.body()!!
+                runOnUiThread(){
+                    val moviesFragmentKT= MoviesFragmentKT()
+                    moviesFragmentKT.movies= body.results as MutableList<MovieKt>
+                    moviesFragmentKT.page=1
+                    moviesFragmentKT.totalpages= body.total_pages.toInt()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragmentContainerView, moviesFragmentKT)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                    binding.lottie.visibility= View.INVISIBLE
+                    binding.fragmentContainerView.visibility=View.VISIBLE
+                }
+            }catch (e:Exception){
+                runOnUiThread() {
+                    binding.lottie.setAnimation(R.raw.error)
+                    binding.lottie.playAnimation()
+                }
             }
         }
     }

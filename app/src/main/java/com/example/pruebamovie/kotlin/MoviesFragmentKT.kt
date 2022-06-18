@@ -81,14 +81,16 @@ class MoviesFragmentKT : Fragment() {
 
     private fun cargar() {
         CoroutineScope(Dispatchers.IO).launch {
-            val call = movieService.getRutas().getPopularMovies("$page").execute()
-            if (call.isSuccessful) {
-                response = call.body()
-                movies.addAll(response!!.results)
-                requireActivity().runOnUiThread(){
-                    adaptadorMoviesKT.notifyItemInserted(movies.size)
+            try {
+                val call = movieService.getRutas().getPopularMovies("$page").execute()
+                if (call.isSuccessful) {
+                    response = call.body()
+                    movies.addAll(response!!.results)
+                    requireActivity().runOnUiThread() {
+                        adaptadorMoviesKT.notifyItemInserted(movies.size)
+                    }
                 }
-            }
+            }catch (e:Exception){}
         }
     }
 
