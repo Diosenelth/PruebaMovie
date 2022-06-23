@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.TextClock
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -18,6 +20,8 @@ class AdaptadorMoviesKT(var movies: List<MovieKt>, var view:View):RecyclerView.A
         val tv=itemView.findViewById<View>(R.id.textView) as TextView
         val imageView=itemView.findViewById<View>(R.id.imageView) as ImageView
         val cardView=itemView.findViewById<View>(R.id.card_view) as CardView
+        val star = itemView.findViewById<View>(R.id.progressBar) as ProgressBar
+        val proText = itemView.findViewById<View>(R.id.progressText) as TextView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,6 +32,8 @@ class AdaptadorMoviesKT(var movies: List<MovieKt>, var view:View):RecyclerView.A
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val movie=movies[position]
+        val voto =movie.vote_average * 10.0
+        val voString = movie.vote_average.toString()
         val img="https://image.tmdb.org/t/p/w500"+movie.poster_path
         holder.tv.text=movie.title
         Glide.with(view.context)
@@ -36,6 +42,8 @@ class AdaptadorMoviesKT(var movies: List<MovieKt>, var view:View):RecyclerView.A
             .placeholder(R.drawable.loading)
             .error(R.drawable.error)
             .into(holder.imageView)
+        holder.star.progress=voto.toInt()
+        holder.proText.text = voString
         holder.cardView.setOnClickListener {
             val activity = it.context as AppCompatActivity
             val details= DetalleMovieFragmentKT()

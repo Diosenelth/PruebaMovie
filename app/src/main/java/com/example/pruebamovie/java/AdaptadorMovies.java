@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,18 +39,24 @@ public class AdaptadorMovies extends RecyclerView.Adapter<AdaptadorMovies.ViewHo
         final TextView tv;
         final ImageView imageView;
         final CardView cardView;
+        final ProgressBar star;
+        final TextView proText;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv = itemView.findViewById(R.id.textView);
             imageView = itemView.findViewById(R.id.imageView);
             cardView = itemView.findViewById(R.id.card_view);
+            star = itemView.findViewById(R.id.progressBar);
+            proText = itemView.findViewById(R.id.progressText);
         }
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Movie movie = movies.get(position);
+        double votoDouble= movie.vote_average * 10.0;
+        int voto = (int) votoDouble;
         holder.tv.setText(movie.getTitle());
         Glide.with(view.getContext())
                 .load("https://image.tmdb.org/t/p/w500" + movie.getPoster_path())
@@ -57,6 +64,9 @@ public class AdaptadorMovies extends RecyclerView.Adapter<AdaptadorMovies.ViewHo
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.error)
                 .into(holder.imageView);
+        holder.star.setProgress(voto);
+        String votoAver=movie.vote_average.toString();
+        holder.proText.setText(votoAver);
         holder.cardView.setOnClickListener(view1 -> {
             AppCompatActivity activity = (AppCompatActivity) view1.getContext();
             DetalleMovieFragment detalleMovieFragment = new DetalleMovieFragment(movie);

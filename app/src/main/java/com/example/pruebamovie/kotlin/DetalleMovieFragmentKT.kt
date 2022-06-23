@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.pruebamovie.R
 import com.example.pruebamovie.databinding.FragmentDetalleMovieBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class DetalleMovieFragmentKT : Fragment() {
     private var _binding: FragmentDetalleMovieBinding? = null
@@ -28,6 +31,7 @@ class DetalleMovieFragmentKT : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+        val movieServiceKT= MovieServiceKT()
         Glide.with(view.context)
             .load("https://image.tmdb.org/t/p/w500"+movie!!.backdrop_path)
             .placeholder(R.drawable.loading)
@@ -40,6 +44,22 @@ class DetalleMovieFragmentKT : Fragment() {
             .error(R.drawable.error)
             .into(binding.detalle.imagenPortada)
         binding.detalle.info.text=movie!!.overview
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = movieServiceKT.getRutas().getMovie(movie!!.id.toString()).execute()
+                if (response.isSuccessful) {
+                    val body = response.body()!!
+                    requireActivity().runOnUiThread {
+                        binding.detalle.Url.text = body.homepage
+                        binding.detalle.fecha.text = body.release_date
+                        binding.detalle.fecha.visibility = View.VISIBLE
+                        binding.detalle.Url.visibility = View.VISIBLE
+                    }
+                }
+            }catch (e: Exception){
+                print(e)
+            }
+        }
     }
 
     override fun onDestroy() {

@@ -36,7 +36,7 @@ class MainActivityKT : AppCompatActivity() {
                     val moviesFragmentKT= MoviesFragmentKT()
                     moviesFragmentKT.movies= body.results as MutableList<MovieKt>
                     moviesFragmentKT.page=1
-                    moviesFragmentKT.totalpages= body.total_pages.toInt()
+                    moviesFragmentKT.totalpages= body.total_pages
                     supportFragmentManager
                         .beginTransaction()
                         .replace(R.id.fragmentContainerView, moviesFragmentKT)

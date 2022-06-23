@@ -20,7 +20,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="35sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/imagenPortada"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imagenPortada"
@@ -49,4 +49,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/Url"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:clickable="false"
+        android:contextClickable="false"
+        android:linksClickable="true"
+        android:text="Url"
+        android:textColor="#0000FF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/fecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Fecha"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Url"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

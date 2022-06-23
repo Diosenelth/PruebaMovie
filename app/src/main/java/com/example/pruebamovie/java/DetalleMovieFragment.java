@@ -1,5 +1,8 @@
 package com.example.pruebamovie.java;
 
+import android.content.Intent;
+import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +16,18 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.example.pruebamovie.R;
 import com.example.pruebamovie.databinding.FragmentDetalleMovieBinding;
+import com.example.pruebamovie.kotlin.Moviedetail;
 
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DetalleMovieFragment extends Fragment {
     private Movie movie;
     FragmentDetalleMovieBinding binding;
+    MovieService movieService;
 
     public DetalleMovieFragment() {
         // Required empty public constructor
@@ -46,6 +55,7 @@ public class DetalleMovieFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        movieService = new MovieService();
         Glide.with(view.getContext())
                 .load("https://image.tmdb.org/t/p/w500" + movie.getBackdrop_path())
                 .placeholder(R.drawable.loading)
@@ -58,6 +68,34 @@ public class DetalleMovieFragment extends Fragment {
                 .error(R.drawable.error)
                 .into(binding.detalle.imagenPortada);
         binding.detalle.info.setText(movie.getOverview());
+        new Thread(()->{
+            movieService.getRutas().getMovie(movie.id).enqueue(new Callback<Moviedetail>() {
+                @Override
+                public void onResponse(Call<Moviedetail> call, Response<Moviedetail> response) {
+                    if (response.isSuccessful() && response.body()!=null){
+                        Moviedetail movie= response.body();
+                        requireActivity().runOnUiThread(()->{
+                            binding.detalle.Url.setText(movie.getHomepage());
+                            binding.detalle.Url.setVisibility(View.VISIBLE);
+                            binding.detalle.fecha.setText(movie.getRelease_date());
+                            binding.detalle.fecha.setVisibility(View.VISIBLE);
+                            binding.detalle.Url.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+                            binding.detalle.Url.setOnClickListener((a)->{
+                                Intent intent= new Intent();
+                                intent.setAction(Intent.ACTION_VIEW);
+                                intent.setData(Uri.parse(movie.getHomepage()));
+                                startActivity(intent);
+                            });
+                        });
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Moviedetail> call, Throwable t) {
+
+                }
+            });
+        }).start();
     }
 
     @Override

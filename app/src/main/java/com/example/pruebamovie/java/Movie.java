@@ -4,8 +4,9 @@ import java.util.List;
 
 public class Movie {
     String adult,backdrop_path,id,original_language,original_title,overview,popularity,
-    poster_path,release_date,title,video,vote_average,vote_count;
+    poster_path,release_date,title,video,vote_count;
     List<String>genre_ids;
+    Double vote_average;
 
     public Movie() {
     }
@@ -98,11 +99,11 @@ public class Movie {
         this.video = video;
     }
 
-    public String getVote_average() {
+    public Double getVote_average() {
         return vote_average;
     }
 
-    public void setVote_average(String vote_average) {
+    public void setVote_average(Double vote_average) {
         this.vote_average = vote_average;
     }
 
