@@ -1,12 +1,12 @@
 package com.example.pruebamovie.kotlin
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +19,7 @@ class MoviesFragmentKT : Fragment() {
     private var _binding: FragmentMoviesBinding? = null
     private val binding get() = _binding!!
 
-    var movies= mutableListOf<MovieKt>()
+    var movies = mutableListOf<MovieKt>()
     var response: MoviesResKT? = null
     var manager: LinearLayoutManager? = null
 
@@ -49,7 +49,7 @@ class MoviesFragmentKT : Fragment() {
 
     private fun init() {
         adaptadorMoviesKT = AdaptadorMoviesKT(movies, requireView())
-        movieService= MovieServiceKT()
+        movieService = MovieServiceKT()
         binding.rv1.setHasFixedSize(true)
         binding.rv1.layoutManager = manager
         binding.rv1.adapter = adaptadorMoviesKT
@@ -90,7 +90,8 @@ class MoviesFragmentKT : Fragment() {
                         adaptadorMoviesKT.notifyItemInserted(movies.size)
                     }
                 }
-            }catch (e:Exception){}
+            } catch (e: Exception) {
+            }
         }
     }
 

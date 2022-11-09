@@ -12,7 +12,7 @@ public class ApiClient {
     private final Retrofit retrofit;
 
     public ApiClient() {
-        retrofit= retrofitBuilder();
+        retrofit = retrofitBuilder();
     }
 
     private Retrofit retrofitBuilder() {

@@ -16,8 +16,8 @@ public class Interceptor implements okhttp3.Interceptor {
 
         HttpUrl url = request.url().newBuilder()
                 .addQueryParameter("api_key", "cd221c9c9cdc3e0f8e4969a04e9dfc45")
-                .addQueryParameter("language","es")
-                .addQueryParameter("countries","CO")
+                .addQueryParameter("language", "es")
+                .addQueryParameter("countries", "CO")
                 .build();
 
         request = request.newBuilder().url(url).build();

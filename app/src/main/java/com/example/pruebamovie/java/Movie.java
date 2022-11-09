@@ -3,9 +3,9 @@ package com.example.pruebamovie.java;
 import java.util.List;
 
 public class Movie {
-    String adult,backdrop_path,id,original_language,original_title,overview,popularity,
-    poster_path,release_date,title,video,vote_count;
-    List<String>genre_ids;
+    String adult, backdrop_path, id, original_language, original_title, overview, popularity,
+            poster_path, release_date, title, video, vote_count;
+    List<String> genre_ids;
     Double vote_average;
 
     public Movie() {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.pruebamovie" >
-    <uses-permission android:name="android.permission.INTERNET"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,9 +12,9 @@
         <activity
             android:name=".java.MainActivity"
             android:exported="true"
-            android:launchMode="singleInstance"
             android:icon="@drawable/ic_java_original_logo_icon"
-            android:label="Movie Java">
+            android:label="Movie Java"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,9 +24,9 @@
         <activity
             android:name=".kotlin.MainActivityKT"
             android:exported="true"
-            android:launchMode="singleInstance"
             android:icon="@drawable/ic_icons8_kotlin_144"
-            android:label="Movie Kotlin">
+            android:label="Movie Kotlin"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

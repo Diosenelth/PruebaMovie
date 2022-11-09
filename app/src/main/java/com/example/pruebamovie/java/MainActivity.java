@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements IPresentador {
         binding.lottie.setAnimation(R.raw.laa);
         binding.lottie.playAnimation();
         binding.fragmentContainerView.setVisibility(View.INVISIBLE);
-        moviesFragment=null;
+        moviesFragment = null;
         mainPresentador = new MainPresentador(this, page);
         mainPresentador.cargar();
     }

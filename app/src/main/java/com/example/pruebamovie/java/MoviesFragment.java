@@ -30,10 +30,11 @@ public class MoviesFragment extends Fragment {
     LinearLayoutManager manager;
     MovieService movieService;
     AdaptadorMovies adaptadorMovies;
-    private int page;
     boolean isScrolling = false;
     int currentItems, totalItems, scrollOutItems;
     IPresentador vista;
+    private int page;
+
     public MoviesFragment() {
         // Required empty public constructor
     }
@@ -103,7 +104,7 @@ public class MoviesFragment extends Fragment {
                 if (response.isSuccessful()) {
                     assert response.body() != null;
                     movies.addAll(response.body().getResults());
-                    requireActivity().runOnUiThread(()->adaptadorMovies.notifyItemInserted(movies.size()));
+                    requireActivity().runOnUiThread(() -> adaptadorMovies.notifyItemInserted(movies.size()));
                 } else {
                     Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
                 }

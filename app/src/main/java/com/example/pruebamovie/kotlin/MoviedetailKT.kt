@@ -1,6 +1,6 @@
 package com.example.pruebamovie.kotlin
 
-data class Moviedetail (
+data class Moviedetail(
     val adult: Boolean,
     val backdrop_path: String,
     val belongs_to_collection: BelongsToCollection,
@@ -28,31 +28,31 @@ data class Moviedetail (
     val vote_Count: Long
 )
 
-data class BelongsToCollection (
+data class BelongsToCollection(
     val id: Long,
     val name: String,
     val posterPath: String,
     val backdropPath: String
 )
 
-data class Genre (
+data class Genre(
     val id: Long,
     val name: String
 )
 
-data class ProductionCompany (
+data class ProductionCompany(
     val id: Long,
     val logo_Path: String,
     val name: String,
     val origin_Country: String
 )
 
-data class ProductionCountry (
+data class ProductionCountry(
     val iso_3166_1: String,
     val name: String
 )
 
-data class SpokenLanguage (
+data class SpokenLanguage(
     val english_Name: String,
     val iso_639_1: String,
     val name: String

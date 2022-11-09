@@ -3,8 +3,8 @@ package com.example.pruebamovie.java;
 import java.util.List;
 
 public class MoviesRes {
-private String page, total_results,total_pages;
-private List<Movie> results;
+    private String page, total_results, total_pages;
+    private List<Movie> results;
 
     public MoviesRes() {
     }

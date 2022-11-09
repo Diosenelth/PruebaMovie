@@ -14,11 +14,12 @@ public class MovieService {
     public MovieService() {
         this.apiClient = new ApiClient();
     }
-    public Rutas getRutas(){
+
+    public Rutas getRutas() {
         return apiClient.getRetrofit().create(Rutas.class);
     }
 
-    public interface Rutas{
+    public interface Rutas {
         @GET("movie/popular")
         Call<MoviesRes> getPopularMovies(@Query("page") int page);
 
